@@ -26,8 +26,6 @@ export default function render() {
     y: +canvas.dataset.height / 2 - headDimensions.height / 2,
   };
 
-  // console.log("offset", offset);
-
   ctx.drawImage(store.selected.head.img, offset.x, offset.y, headDimensions.width, headDimensions.height);
   ctx.drawImage(store.selected.eyebrows.img, offset.x, offset.y, eyebrowDimensions.width, eyebrowDimensions.height);
   ctx.drawImage(store.selected.eyes.img, offset.x, offset.y, eyesDimensions.width, eyesDimensions.height);

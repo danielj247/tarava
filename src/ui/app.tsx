@@ -20,12 +20,6 @@ export default function App() {
   const store = useStore();
   const [dimensions, setDimensions] = useState(INITIAL_DIMENSIONS);
 
-  const headItems = store.getAssetItems(AssetType.HEAD);
-  const eyebrowItems = store.getAssetItems(AssetType.EYEBROWS);
-  const eyesItems = store.getAssetItems(AssetType.EYES);
-  const noseItems = store.getAssetItems(AssetType.NOSE);
-  const mouthItems = store.getAssetItems(AssetType.MOUTH);
-
   // start the canvas setup and rendering loop
   useEffect(() => {
     main();
@@ -34,7 +28,6 @@ export default function App() {
   // on resize update the canvas dimensions, < 500px it should be 100% width otherwise 500px
   useEffect(() => {
     function resize() {
-      console.log("called", calculateCanvasDimensions());
       setDimensions(calculateCanvasDimensions());
     }
 
@@ -44,10 +37,10 @@ export default function App() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-y-4 pt-10">
+    <div className="flex flex-col items-center justify-center gap-y-4 pt-10 px-10 lg:flex-row">
       <canvas id="canvas" data-width={dimensions.width} data-height={dimensions.height} />
       <section>
-        <Tabs defaultValue="head" className="w-[400px]">
+        <Tabs defaultValue="head" className="w-full max-w-[400px]">
           <TabsList className="flex justify-center">
             <TabsTrigger value="head">head</TabsTrigger>
             <TabsTrigger value="eyebrows">eyebrows</TabsTrigger>

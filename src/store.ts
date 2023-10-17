@@ -44,7 +44,6 @@ const useStore = create<Store>((set, get) => ({
     mouth: ASSETS.mouth[0],
   },
 
-  // assets getters
   getAssetItems: (type: AssetType) => {
     return get().assets?.[type]?.map((asset, ix) => ({
       name: ix.toString(),
@@ -54,13 +53,24 @@ const useStore = create<Store>((set, get) => ({
 
   setHead: (head: Asset) =>
     set((state) => {
-      console.log("head changed", head);
       return { selected: { ...state.selected, head } };
     }),
-  setEyebrows: (eyebrows: Asset) => set((state) => ({ selected: { ...state.selected, eyebrows } })),
-  setEyes: (eyes: Asset) => set((state) => ({ selected: { ...state.selected, eyes } })),
-  setNose: (nose: Asset) => set((state) => ({ selected: { ...state.selected, nose } })),
-  setMouth: (mouth: Asset) => set((state) => ({ selected: { ...state.selected, mouth } })),
+  setEyebrows: (eyebrows: Asset) =>
+    set((state) => {
+      return { selected: { ...state.selected, eyebrows } };
+    }),
+  setEyes: (eyes: Asset) =>
+    set((state) => {
+      return { selected: { ...state.selected, eyes } };
+    }),
+  setNose: (nose: Asset) =>
+    set((state) => {
+      return { selected: { ...state.selected, nose } };
+    }),
+  setMouth: (mouth: Asset) =>
+    set((state) => {
+      return { selected: { ...state.selected, mouth } };
+    }),
 }));
 
 const getStore = useStore.getState;
