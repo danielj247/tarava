@@ -4,6 +4,8 @@ import { TypographyH4 } from "./components/ui/typography";
 import AssetSelector from "./components/asset-selector";
 import { AssetType, useStore } from "@/store";
 import { Asset } from "@/lib/assets";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/ui/components/ui/tabs";
+import AssetGridSelector from "./components/asset-grid-selector";
 
 function calculateCanvasDimensions() {
   return {
@@ -45,6 +47,51 @@ export default function App() {
     <div className="flex flex-col items-center gap-y-4 pt-10">
       <canvas id="canvas" data-width={dimensions.width} data-height={dimensions.height} />
       <section>
+        <Tabs defaultValue="head" className="w-[400px]">
+          <TabsList className="flex justify-center">
+            <TabsTrigger value="head">head</TabsTrigger>
+            <TabsTrigger value="eyebrows">eyebrows</TabsTrigger>
+            <TabsTrigger value="eyes">eyes</TabsTrigger>
+            <TabsTrigger value="nose">nose</TabsTrigger>
+            <TabsTrigger value="mouth">mouth</TabsTrigger>
+          </TabsList>
+          <TabsContent value="head">
+            <AssetGridSelector
+              assets={store.assets.head}
+              selected={store.selected.head}
+              onSelect={(asset) => store.setHead(asset as Asset)}
+            />
+          </TabsContent>
+          <TabsContent value="eyebrows">
+            <AssetGridSelector
+              assets={store.assets.eyebrows}
+              selected={store.selected.eyebrows}
+              onSelect={(asset) => store.setEyebrows(asset as Asset)}
+            />
+          </TabsContent>
+          <TabsContent value="eyes">
+            <AssetGridSelector
+              assets={store.assets.eyes}
+              selected={store.selected.eyes}
+              onSelect={(asset) => store.setEyes(asset as Asset)}
+            />
+          </TabsContent>
+          <TabsContent value="nose">
+            <AssetGridSelector
+              assets={store.assets.nose}
+              selected={store.selected.nose}
+              onSelect={(asset) => store.setNose(asset as Asset)}
+            />
+          </TabsContent>
+          <TabsContent value="mouth">
+            <AssetGridSelector
+              assets={store.assets.mouth}
+              selected={store.selected.mouth}
+              onSelect={(asset) => store.setMouth(asset as Asset)}
+            />
+          </TabsContent>
+        </Tabs>
+        {/* 
         <div className="flex flex-col items-center mb-10">
           <TypographyH4 className="mb-2">Head</TypographyH4>
           <AssetSelector items={headItems} onChange={(item) => store.setHead(item.value as Asset)} />
@@ -64,7 +111,7 @@ export default function App() {
         <div className="flex flex-col items-center mb-10">
           <TypographyH4 className="mb-2">Mouth</TypographyH4>
           <AssetSelector items={mouthItems} onChange={(item) => store.setMouth(item.value as Asset)} />
-        </div>
+        </div> */}
       </section>
     </div>
   );
