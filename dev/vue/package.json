@@ -1,0 +1,28 @@
+{
+  "name": "@tarava/vue-dev-app",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "tsc && eslint \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "@tarava/core": "*",
+    "@tarava/vue": "*",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "*",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.3",
+    "tsconfig": "*",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.5"
+  }
+}
