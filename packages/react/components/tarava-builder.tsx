@@ -57,13 +57,13 @@ export default function TaravaBuilder(props: TaravaBuilderProps) {
   onInit(() => {
     if (!store || !assets) return;
 
-    // setAvatar({
-    //   head: assets.head[0],
-    //   eyebrows: assets.eyebrows[0],
-    //   eyes: assets.eyes[0],
-    //   nose: assets.nose[0],
-    //   mouth: assets.mouth[0],
-    // });
+    setAvatar({
+      head: assets.head[0],
+      eyebrows: assets.eyebrows[0],
+      eyes: assets.eyes[0],
+      nose: assets.nose[0],
+      mouth: assets.mouth[0],
+    });
   });
 
   return (

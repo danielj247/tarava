@@ -80,6 +80,8 @@ export default function useTarava(canvasElement?: Ref<HTMLCanvasElement>) {
 
     // keep store as ref and export
     store.value = tarava.store;
+    assets.value = tarava.store.get("assets")
+    avatar.value = tarava.store.get("avatar")
 
     // subscribe to asset changes
     store.value.subscribe("assets", (newAssets) => {

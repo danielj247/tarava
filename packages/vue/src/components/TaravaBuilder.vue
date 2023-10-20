@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, defineProps } from 'vue'
+import { ref, defineProps, nextTick } from 'vue'
 import useTarava from "@/composables/useTarava";
 import AvatarRenderer from '@/components/AvatarRenderer.vue';
 import AssetSelector from '@/components/AssetSelector.vue';
@@ -44,7 +44,7 @@ function handleSelect(type: AssetType, asset: Asset) {
   emit('select', type, asset, avatar.value);
 }
 
-onInit(() => {
+onInit(async () => {
   if (!store.value || !assets.value) return;
 
   setAvatar({
