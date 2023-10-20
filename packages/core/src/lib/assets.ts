@@ -66,7 +66,5 @@ export async function loadAssets(): Promise<LoadAssets> {
     sized: (width: number, height?: number) => _sized(img, width, height),
   }));
 
-  console.log(head);
-
   return { eyebrows, eyes, mouth, nose, head };
 }

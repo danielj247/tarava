@@ -39,7 +39,9 @@ function handleSelect(type: AssetType, asset: Asset) {
       break;
   }
 
-  emit('select', type, asset, avatar.value as Asset);
+  if (!avatar.value) return;
+
+  emit('select', type, asset, avatar.value);
 }
 
 onInit(() => {

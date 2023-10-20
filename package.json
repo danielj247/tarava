@@ -10,6 +10,7 @@
     "eslint": "^8.51.0",
     "eslint-config-custom": "*",
     "prettier": "^3.0.3",
+    "tsup": "^7.2.0",
     "turbo": "latest"
   },
   "packageManager": "yarn@1.22.19",

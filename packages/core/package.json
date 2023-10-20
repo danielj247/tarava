@@ -2,11 +2,10 @@
   "name": "@tarava/core",
   "version": "0.0.0",
   "main": "./dist",
-  "types": "./index.ts",
   "license": "MIT",
   "scripts": {
+    "dev": "vite build && vite build --watch",
     "build": "vite build",
-    "dev": "vite build --watch",
     "lint": "tsc && eslint \"**/*.ts\""
   },
   "devDependencies": {

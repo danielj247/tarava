@@ -12,7 +12,7 @@ import type { LoadAssets, Asset, Avatar } from '@tarava/types';
 
 const props = defineProps<{
   assets: LoadAssets;
-  selected: Avatar;
+  selected?: Avatar;
 }>();
 
 const emit = defineEmits<{

@@ -1,12 +1,12 @@
-import { resolve } from "path";
 import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
+import { resolve } from "path";
+import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    react(),
     dts({
       exclude: ["vite.config.ts"],
     }),
@@ -24,18 +24,20 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "index.ts"),
-      name: "@tarava/vue",
+      name: "@tarava/react",
       fileName: "index",
     },
+
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ["vue"],
+      external: ["react", "react-dom"],
       output: {
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
-          vue: "Vue",
+          react: "React",
+          "react-dom": "ReactDOM",
         },
       },
     },
