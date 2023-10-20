@@ -21,39 +21,49 @@ export default function useTarava(canvasRef: RefObject<HTMLCanvasElement>) {
   const [avatar, _setAvatar] = useState<Avatar>();
 
   function setAvatar(avatar: Avatar) {
-    store.current.setState("avatar", avatar);
+    store.current?.setState("avatar", avatar);
   }
 
   function setHeadAsset(asset: Asset) {
-    store.current.setState("avatar", {
+    const avatar = store.current?.get("avatar") || ({} as Avatar);
+
+    store.current?.setState("avatar", {
       ...avatar,
       [AssetType.HEAD]: asset,
     });
   }
 
   function setEyebrowsAsset(asset: Asset) {
-    store.current.setState("avatar", {
+    const avatar = store.current?.get("avatar") || ({} as Avatar);
+
+    store.current?.setState("avatar", {
       ...avatar,
       [AssetType.EYEBROWS]: asset,
     });
   }
 
   function setEyesAsset(asset: Asset) {
-    store.current.setState("avatar", {
+    const avatar = store.current?.get("avatar") || ({} as Avatar);
+
+    store.current?.setState("avatar", {
       ...avatar,
       [AssetType.EYES]: asset,
     });
   }
 
   function setNoseAsset(asset: Asset) {
-    store.current.setState("avatar", {
+    const avatar = store.current?.get("avatar") || ({} as Avatar);
+
+    store.current?.setState("avatar", {
       ...avatar,
       [AssetType.NOSE]: asset,
     });
   }
 
   function setMouthAsset(asset: Asset) {
-    store.current.setState("avatar", {
+    const avatar = store.current?.get("avatar") || ({} as Avatar);
+
+    store.current?.setState("avatar", {
       ...avatar,
       [AssetType.MOUTH]: asset,
     });

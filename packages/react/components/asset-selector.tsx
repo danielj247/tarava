@@ -6,12 +6,13 @@ import type { LoadAssets, Asset, Avatar } from "@tarava/types";
 
 export interface AssetSelectorProps {
   assets: LoadAssets;
+  assetType: AssetType;
   selected?: Avatar;
   onSelect: (type: AssetType, asset: Asset) => void;
 }
 
 function AssetGrid(props: AssetSelectorProps) {
-  const { assets, selected, onSelect } = props;
+  const { assets, assetType, selected, onSelect } = props;
 
   if (!assets) return null;
 
@@ -22,7 +23,7 @@ function AssetGrid(props: AssetSelectorProps) {
           key={ix}
           className={[
             "bg-gray-100 p-4 rounded-lg",
-            asset === selected?.[AssetType.HEAD] && "ring-2 ring-black",
+            asset === selected?.[assetType] && "ring-2 ring-black",
           ]
             .filter(Boolean)
             .join(" ")}
@@ -31,7 +32,7 @@ function AssetGrid(props: AssetSelectorProps) {
             src={asset.img.src}
             alt={`Asset item ${ix}`}
             className="w-full"
-            onClick={() => onSelect(AssetType.HEAD, asset)}
+            onClick={() => onSelect(assetType, asset)}
           />
         </div>
       ))}
@@ -86,6 +87,7 @@ export default function AssetSelector(props: AssetSelectorProps) {
           <TabsContent value={AssetType.HEAD} activeTab={activeTab}>
             <AssetGrid
               assets={assets?.[AssetType.HEAD]}
+              assetType={AssetType.HEAD}
               selected={selected}
               onSelect={onSelect}
             />
@@ -93,6 +95,7 @@ export default function AssetSelector(props: AssetSelectorProps) {
           <TabsContent value={AssetType.EYEBROWS} activeTab={activeTab}>
             <AssetGrid
               assets={assets?.[AssetType.EYEBROWS]}
+              assetType={AssetType.EYEBROWS}
               selected={selected}
               onSelect={onSelect}
             />
@@ -100,6 +103,7 @@ export default function AssetSelector(props: AssetSelectorProps) {
           <TabsContent value={AssetType.EYES} activeTab={activeTab}>
             <AssetGrid
               assets={assets?.[AssetType.EYES]}
+              assetType={AssetType.EYES}
               selected={selected}
               onSelect={onSelect}
             />
@@ -107,6 +111,7 @@ export default function AssetSelector(props: AssetSelectorProps) {
           <TabsContent value={AssetType.NOSE} activeTab={activeTab}>
             <AssetGrid
               assets={assets?.[AssetType.NOSE]}
+              assetType={AssetType.NOSE}
               selected={selected}
               onSelect={onSelect}
             />
@@ -114,6 +119,7 @@ export default function AssetSelector(props: AssetSelectorProps) {
           <TabsContent value={AssetType.MOUTH} activeTab={activeTab}>
             <AssetGrid
               assets={assets?.[AssetType.MOUTH]}
+              assetType={AssetType.MOUTH}
               selected={selected}
               onSelect={onSelect}
             />

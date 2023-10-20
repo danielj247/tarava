@@ -31,6 +31,9 @@ export default function TaravaBuilder(props: TaravaBuilderProps) {
   } = useTarava(canvas);
 
   function handleSelect(type: AssetType, asset: Asset) {
+    console.log(type, asset);
+    
+
     switch (type) {
       case AssetType.HEAD:
         setHeadAsset(asset);
@@ -58,7 +61,7 @@ export default function TaravaBuilder(props: TaravaBuilderProps) {
     if (!store || !assets) return;
 
     setAvatar({
-      head: assets.head[0],
+      head: assets.head[3],
       eyebrows: assets.eyebrows[0],
       eyes: assets.eyes[0],
       nose: assets.nose[0],
